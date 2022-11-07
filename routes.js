@@ -10,7 +10,7 @@ router.get("/", homeController.getHome);
 router.get("/slideshow", slideshowCOntroller.getSlideshow);
 router.get("/login", homeController.getLogin);
 router.get("/logout", homeController.logOut);
-router.get("/upload", imageController.getUpload);
+router.get("/upload", connectEnsureLogin.ensureLoggedIn(), imageController.getUpload);
 router.get(
   "/dashboard",
   connectEnsureLogin.ensureLoggedIn(),
