@@ -12,7 +12,8 @@ const fileUpload = require("express-fileupload");
 const app = express();
 const port = 3000;
 
-const database_url = process.env.DATABASE_URL;
+const database_url =
+  "mongodb+srv://admin:admin@cluster0.ixydjpe.mongodb.net/test";
 
 mongoose
   .connect(database_url)
@@ -25,7 +26,7 @@ mongoose
 
 app.use(
   session({
-    secret: process.env.SECRET,
+    secret: 123456,
     resave: false,
     saveUninitialized: true,
   })
